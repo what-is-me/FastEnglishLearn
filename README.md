@@ -5,7 +5,7 @@
 - 幸运的是，抓紧时间，你只需要36000s=600min=10h就行了😏
 - 你决定花一天刷完所有单词，在考前报个佛脚😵
 
-它使用了我之前写的https://github.com/what-is-me/WordListEnquiry里的moudle来查询单词，运行源代码的只需要`pip`下载一下就好了，或者直接运行`set.ps1`
+它使用了我之前写的项目[WordListEnquiry](https://github.com/what-is-me/WordListEnquiry)里的moudle来查询单词，运行源代码的只需要`pip`下载一下就好了，或者直接运行`set.ps1`
 
 ## 下面是最开始生成的各个文件的介绍
 ### .\config.json:
