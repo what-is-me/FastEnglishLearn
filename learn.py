@@ -51,7 +51,7 @@ def _blue(string):
 
 if __name__ == "__main__":
     p = os.path.dirname(os.path.realpath(__file__))
-    p = p+"\\dict\\"
+    p = p+"\\"
     try:
         with open(p+"config.json", 'r', encoding="utf-8") as config:
             config = json.load(config)  # ! config json->dict
