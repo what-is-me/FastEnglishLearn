@@ -8,10 +8,27 @@ LastEditors: what-is-me
 LastEditTime: 2021-05-30 15:33:43
 Description: file content
 '''
+from pygame import mixer  # Load the required library
 import json
 import time
 import os
 import wordlistenquiry as wl
+import requests
+
+
+def read(word):
+    global p
+    filepath = p+'en\\'+word+'.mp3'
+    res = requests.get('http://dict.youdao.com/dictvoice?type=0&audio='+word)
+    music = res.content
+    with open(filepath, 'wb') as file:  # 保存到本地的文件名
+        file.write(music)
+        file.flush()
+    mixer.init()
+    mixer.music.load(filepath)
+    mixer.music.play()
+    return 2
+
 
 con = '''{
     "filename": "list.txt",
@@ -49,9 +66,20 @@ def _blue(string):
         return string
 
 
+'''
+def read(word):
+    engine = pyttsx3.init()
+    engine.say(word)
+    engine.runAndWait()
+'''
+
 if __name__ == "__main__":
     p = os.path.dirname(os.path.realpath(__file__))
-    p = p+"\\"
+    p = os.path.join(p, 'dict')
+    p = p + '\\'
+    if not os.path.exists(p+'en'):
+        # 不存在，就创建
+        os.makedirs(p+'en')
     try:
         with open(p+"config.json", 'r', encoding="utf-8") as config:
             config = json.load(config)  # ! config json->dict
@@ -87,11 +115,12 @@ if __name__ == "__main__":
             print(100*" ", end="\r")
             print(_red(str(i))+"|\t\t"+_yellow(sa) +
                   (20-len(sa))*" "+"|  "+_blue(sb))
+            t = read(sa)
             newfile = open(
                 p+"ResultOf-"+config['filename'], 'a+', encoding="utf-8")
             newfile.write(sa+config['div']+sb+'\n')
             newfile.close()
-            time.sleep(config['speed'])
+            time.sleep(config['speed'] if config['speed'] > t else t)
             with open(p+config['log'], 'w') as log:
                 log.write(str(i))
     else:
@@ -107,6 +136,7 @@ if __name__ == "__main__":
             print(100*" ", end="\r")
             print(_red(str(i))+"|\t\t"+_yellow(sa) +
                   (20-len(sa))*" "+"|  "+_blue(sb))
-            time.sleep(config['speed'])
+            t = read(sa)
+            time.sleep(config['speed'] if config['speed'] > t else t)
             with open(p+config['log'], 'w') as log:
                 log.write(str(i))

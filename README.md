@@ -5,21 +5,21 @@
 - 幸运的是，抓紧时间，你只需要36000s=600min=10h就行了😏
 - 你决定花一天刷完所有单词，在考前报个佛脚😵
 
-它使用了我之前写的项目[WordListEnquiry](https://github.com/what-is-me/WordListEnquiry)里的moudle来查询单词，运行源代码的只需要`pip`下载一下就好了，或者直接运行`set.ps1`
+它使用了我之前写的https://github.com/what-is-me/WordListEnquiry里的moudle来查询单词，运行源代码的只需要`pip`下载一下就好了，或者直接运行`set.ps1`
 
 ## 下面是最开始生成的各个文件的介绍
 ### .\config.json:
 - 顾名思义，就是软件运行的各项设置，你可以自行修改
-```python
+```json
 {
-    "filename": "list.txt", #打开的单词列表
-    "log": ".log", #储存浏览日志
-    "choice": 1, #当"online":1时，查询单词的选项
-    "color": 1, #是否打开颜色（有的终端会出现乱码，改为0就好）
-    "speed": 1, #每个单词停顿的时间，单位(sec)
-    "online": 0, #为1则表示只有单词，将联网查询并把解释写到一个新文件里
-    "page": 25, #每25个单词翻页
-    "div": ":" #online：1则在生成的文件中用此分隔；online：0则读取的文件用此分隔意思和单词
+    "filename": "list.txt", //打开的单词列表
+    "log": ".log", //储存浏览日志
+    "choice": 1, //当"online":1时，查询单词的选项
+    "color": 1, //是否打开颜色（有的终端会出现乱码，改为0就好）
+    "speed": 1, //每个单词停顿的时间，单位(sec)
+    "online": 0, //为1则表示只有单词，将联网查询并把解释写到一个新文件里
+    "page": 25, //每25个单词翻页
+    "div": ":" //online：1则在生成的文件中用此分隔；online：0则读取的文件用此分隔意思和单词
 }
 ```
 ### .\log:
