@@ -14,6 +14,7 @@ import time
 import os
 import wordlistenquiry as wl
 import requests
+import keyboard
 
 
 def read(word):
@@ -106,6 +107,9 @@ if __name__ == "__main__":
     print(config['filename']+"\n\n\n==========================================================================================================================================================>\n")
     if config['online']:
         while i < al:
+            if keyboard.is_pressed('enter'):
+                time.sleep(2)
+                os.system("pause")
             i = i+1
             sa = f[i-1].strip()
             sb = wl.search(sa, choice=config['choice'])
@@ -125,6 +129,9 @@ if __name__ == "__main__":
                 log.write(str(i))
     else:
         while i < al:
+            if keyboard.is_pressed('enter'):
+                time.sleep(2)
+                os.system("pause")
             i = i+1
             s = f[i-1].strip()
             if (i-1) % config['page'] == 0:
