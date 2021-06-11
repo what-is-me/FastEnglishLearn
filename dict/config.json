@@ -1,1 +1,10 @@
-
+{
+    "filename": "六级大纲.txt",
+    "log": "六级大纲.log",
+    "choice": 1,
+    "color": 1,
+    "speed": 0,
+    "online": 0,
+    "page": 10,
+    "div": ":"
+}
