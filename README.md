@@ -6,7 +6,8 @@
 - 你决定花一天刷完所有单词，在考前报个佛脚😵
 - 或许只要高频词就够了
 
-它使用了我之前写的https://github.com/what-is-me/WordListEnquiry里的moudle来查询单词，运行源代码的只需要`pip`下载一下就好了，或者直接运行`set.bat`
+它使用了我之前写的https://github.com/what-is-me/WordListEnquiry
+里的moudle来查询单词，运行源代码的只需要`pip`下载一下就好了还有requests等，或者直接运行`set.bat`
 
 ## 下面是最开始生成的各个文件的介绍
 ### .\config.json:
