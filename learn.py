@@ -9,6 +9,7 @@ LastEditTime: 2021-05-30 15:33:43
 Description: file content
 '''
 from pygame import mixer  # Load the required library
+import pygame
 import json
 import time
 import os
@@ -18,8 +19,7 @@ import keyboard
 
 
 def read(word):
-    global p
-    filepath = p+'en\\'+word+'.mp3'
+    filepath = word + '.mp3'
     res = requests.get('http://dict.youdao.com/dictvoice?type=0&audio='+word)
     music = res.content
     with open(filepath, 'wb') as file:  # 保存到本地的文件名
@@ -28,7 +28,14 @@ def read(word):
     mixer.init()
     mixer.music.load(filepath)
     mixer.music.play()
-    return 2
+    t = 0.0
+    while mixer.music.get_busy():
+        time.sleep(0.01)
+        t += 0.01
+    pygame.quit()
+    if os.path.exists(filepath):
+        os.remove(filepath)
+    return t
 
 
 con = '''{
